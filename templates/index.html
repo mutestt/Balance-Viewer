@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Base Wallet Balance Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Base Wallet Balance Checker</h1>
+        <form method="post">
+            <input type="text" name="address" placeholder="Enter wallet address" required>
+            <input type="submit" value="Check Balance">
+        </form>
+        {% if balance %}
+            <div class="result">
+                <strong>Balance:</strong> {{ balance }}
+            </div>
+        {% endif %}
+        {% if error %}
+            <div class="result error">
+                <strong>Error:</strong> {{ error }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
